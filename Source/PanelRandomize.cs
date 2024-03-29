@@ -139,7 +139,7 @@ namespace EdB.PrepareCarefully {
                             state.CurrentPawn.RandomizeAnyNonArchite = false;
                         },
                         customInner.IconDef.Icon, XenotypeDef.IconColor, MenuOptionPriority.Default, null, null, 24f, delegate (Rect r) {
-                            if (Widgets.ButtonImage(new Rect(r.x, r.y + (r.height - r.width) / 2f, r.width, r.width), TexButton.DeleteX, GUI.color)) {
+                            if (Widgets.ButtonImage(new Rect(r.x, r.y + (r.height - r.width) / 2f, r.width, r.width), TexButton.Delete, GUI.color)) {
                                 Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("ConfirmDelete".Translate(customInner.name.CapitalizeFirst()), delegate {
                                     string path = GenFilePaths.AbsFilePathForXenotype(customInner.name);
                                     if (File.Exists(path)) {

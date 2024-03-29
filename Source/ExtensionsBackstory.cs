@@ -33,8 +33,9 @@ namespace EdB.PrepareCarefully {
             List<SkillDef> allDefsListForReading = DefDatabase<SkillDef>.AllDefsListForReading;
             for (int i = 0; i < allDefsListForReading.Count; i++) {
                 SkillDef skillDef = allDefsListForReading[i];
-                if (backstory.skillGains.ContainsKey(skillDef)) {
-                    stringBuilder.AppendLine(skillDef.skillLabel.CapitalizeFirst() + ":   " + backstory.skillGains[skillDef].ToString("+##;-##"));
+
+                foreach (var skill in backstory.skillGains.Where(s => s.skill == skillDef)) {
+                    stringBuilder.AppendLine(skillDef.skillLabel.CapitalizeFirst() + ":   " + skill.amount.ToString("+##;-##"));
                 }
             }
             stringBuilder.AppendLine();

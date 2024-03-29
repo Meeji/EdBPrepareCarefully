@@ -720,7 +720,7 @@ namespace EdB.PrepareCarefully {
                 }
                 pawn.gender = gender;
                 messageCount = ReflectionUtil.GetNonPublicStatic<int>(typeof(Log), "messageCount");
-                pawn.Drawer.renderer.graphics.ResolveAllGraphics();
+                pawn.Render();
                 return pawn;
             }
             else {

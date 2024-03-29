@@ -16,7 +16,7 @@ namespace EdB.PrepareCarefully {
         public ScenPart_CustomAnimal() {
             // Set the def to match the standard starting animal that we'll be replacing with this one.
             // Doing so makes sure that this part gets sorted as expected when building the scenario description
-            this.def = ScenPartDefOf.StartingAnimal;
+            // this.def = ScenPartDefOf.StartingAnimal;
         }
         public PawnKindDef KindDef {
             get {

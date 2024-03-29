@@ -13,7 +13,7 @@ namespace EdB.PrepareCarefully {
                 if (backstory.skillGains.Count == 0) {
                     return true;
                 }
-                foreach (var gain in backstory.skillGains.Values) {
+                foreach (var gain in backstory.skillGains.Select(s => s.amount)) {
                     if (gain < 0) {
                         return false;
                     }

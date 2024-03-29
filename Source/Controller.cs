@@ -348,7 +348,7 @@ namespace EdB.PrepareCarefully {
                     int stacks = Mathf.CeilToInt((float)e.Count / (float)e.ThingDef.stackLimit);
                     scatterStackCount += stacks;
                     ScenPart_ScatterThingsNearPlayerStart part = new ScenPart_ScatterThingsNearPlayerStart();
-                    part.def = ScenPartDefOf.ScatterThingsNearPlayerStart;
+                    part.def = ScenPartDefOf.PlayerPawnsArriveMethod;
                     part.SetPrivateField("thingDef", e.ThingDef);
                     part.SetPrivateField("stuff", e.StuffDef);
                     part.SetPrivateField("count", e.Count);
@@ -389,7 +389,7 @@ namespace EdB.PrepareCarefully {
                         // Be sure to set the def, since that doesn't happen automatically.  Failing to do so will
                         // cause null pointer exceptions when trying to sort the scenario parts when creating the
                         // description to display in the "Scenario Summary."
-                        part.def = ScenPartDefOf.StartingThing_Defined;
+                        // part.def = ScenPartDefOf.ConfigPage_ConfigureStartingPawns;
                         part.SetPrivateField("thingDef", e.ThingDef);
                         part.SetPrivateField("stuff", e.StuffDef);
                         part.SetPrivateField("count", nearCount);
@@ -399,7 +399,7 @@ namespace EdB.PrepareCarefully {
                     if (scatterCount > 0) {
                         scatterCount += Mathf.CeilToInt((float)scatterCount / (float)e.ThingDef.stackLimit);
                         ScenPart_ScatterThingsNearPlayerStart part = new ScenPart_ScatterThingsNearPlayerStart();
-                        part.def = ScenPartDefOf.ScatterThingsNearPlayerStart;
+                        // part.def = ScenPartDefOf.ScatterThingsNearPlayerStart;
                         part.SetPrivateField("thingDef", e.ThingDef);
                         part.SetPrivateField("stuff", e.StuffDef);
                         part.SetPrivateField("count", scatterCount);
@@ -436,7 +436,7 @@ namespace EdB.PrepareCarefully {
             // the custom parts into a single vanilla part for each animal kind.
             foreach (var animalKindDef in animalKindCounts.Keys) {
                 ScenPart_StartingAnimal vanillaPart = new ScenPart_StartingAnimal() {
-                    def = ScenPartDefOf.StartingAnimal
+                    // def = ScenPartDefOf.StartingAnimal
                 };
                 vanillaPart.SetPrivateField("animalKind", animalKindDef);
                 vanillaPart.SetPrivateField("count", animalKindCounts[animalKindDef]);

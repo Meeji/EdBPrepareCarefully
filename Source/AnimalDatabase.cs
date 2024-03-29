@@ -94,7 +94,8 @@ namespace EdB.PrepareCarefully {
             if (kindDef != null) {
                 Pawn pawn = PawnGenerator.GeneratePawn(kindDef, null);
                 pawn.gender = gender;
-                pawn.Drawer.renderer.graphics.ResolveAllGraphics();
+                pawn.Render();
+
                 return pawn;
             }
             else {

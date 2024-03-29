@@ -78,6 +78,7 @@
     <Compile Include="Source\CustomFaction.cs" />
     <Compile Include="Source\DialogFavoriteColor.cs" />
     <Compile Include="Source\DialogTitles.cs" />
+    <Compile Include="Source\ExtensionMethods.cs" />
     <Compile Include="Source\ExtensionsBackstory.cs" />
     <Compile Include="Source\ExtensionsDictionary.cs" />
     <Compile Include="Source\ExtensionsEnumerable.cs" />
@@ -286,9 +287,11 @@
     <None Include="README.md" />
     <None Include="Libraries\README.md" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Libraries\Harmony\2.2.2\" />
+  </ItemGroup>
   <PropertyGroup>
     <PostBuildEvent>cd $(SolutionDir)
-deploy.bat</PostBuildEvent>
+dist.bat</PostBuildEvent>
   </PropertyGroup>
 </Project>

@@ -540,25 +540,27 @@ namespace EdB.PrepareCarefully {
         protected int ComputeSkillModifier(SkillDef def) {
             int value = 0;
             if (pawn.story != null && pawn.story.Childhood != null && pawn.story.Childhood.skillGains != null) {
-                if (pawn.story.Childhood.skillGains.ContainsKey(def)) {
-                    value += pawn.story.Childhood.skillGains[def];
-                }
+                value += pawn.story.Childhood.skillGains
+                    .Where(s => s.skill == def)
+                    .Sum(skill => skill.amount);
             }
+            
             if (pawn.story != null && pawn.story.Adulthood != null && pawn.story.Adulthood.skillGains != null) {
-                if (pawn.story.Adulthood.skillGains.ContainsKey(def)) {
-                    value += pawn.story.Adulthood.skillGains[def];
-                }
+                value += pawn.story.Adulthood.skillGains
+                    .Where(s => s.skill == def)
+                    .Sum(skill => skill.amount);
             }
+            
             foreach (Trait trait in this.Pawn.story.traits.allTraits) {
                 if (trait != null && trait.def != null && trait.def.degreeDatas != null) {
                     foreach (TraitDegreeData data in trait.def.degreeDatas) {
                         if (data.degree == trait.Degree) {
                             if (data.skillGains != null) {
                                 foreach (var pair in data.skillGains) {
-                                    if (pair.Key != null) {
-                                        SkillDef skillDef = pair.Key;
+                                    if (pair.skill != null) {
+                                        SkillDef skillDef = pair.skill;
                                         if (skillDef == def) {
-                                            value += pair.Value;
+                                            value += pair.amount;
                                         }
                                     }
                                 }

@@ -154,7 +154,7 @@ namespace EdB.PrepareCarefully {
         }
 
         public static void ClearCachedPortraits(this Pawn pawn) {
-            pawn.Drawer.renderer.graphics.ResolveAllGraphics();
+            pawn.Render();
             PortraitsCache.SetDirty(pawn);
         }
 

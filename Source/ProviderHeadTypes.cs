@@ -80,7 +80,7 @@ namespace EdB.PrepareCarefully {
         protected OptionsHeadType InitializeHumanHeadTypes() {
             OptionsHeadType result = new OptionsHeadType();
             foreach (var d in DefDatabase<HeadTypeDef>.AllDefs) {
-                if (d == HeadTypeDefOf.Skull || d== HeadTypeDefOf.Stump) {
+                if (d == HeadTypeDefOf.Skull) {
                     continue;
                 }
                 result.AddHeadType(d);

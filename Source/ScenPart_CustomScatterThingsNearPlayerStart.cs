@@ -13,7 +13,7 @@ namespace EdB.PrepareCarefully {
         public ScenPart_CustomScatterThingsNearPlayerStart() {
             // Set the def to match the standard scatter part that we'll be replacing with this one.
             // Doing so makes sure that this part gets sorted as expected when building the scenario description
-            this.def = ScenPartDefOf.ScatterThingsNearPlayerStart;
+            // this.def = ScenPartDefOf.ScatterThingsNearPlayerStart;
         }
         public ThingDef ThingDef {
             get {

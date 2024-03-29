@@ -27,15 +27,18 @@ namespace EdB.PrepareCarefully {
                 this.LabelFull = "EdB.PC.Dialog.Backstory.Filter.SkillBonusFull".Translate(this.SkillDef.LabelCap, bonusOrPenalty);
             }
             this.FilterFunction = (BackstoryDef backstory) => {
-                if (this.SkillDef != null && backstory.skillGains.ContainsKey(this.SkillDef)) {
-                    int value = backstory.skillGains[skillDef];
-                    if (bonusOrPenalty > 0) {
-                        return value >= bonusOrPenalty;
-                    }
-                    else {
-                        return value <= bonusOrPenalty;
+                if (this.SkillDef != null) {
+                    foreach (var skill in backstory.skillGains.Where(s => s.skill == this.SkillDef)) {
+                        int value = skill.amount;
+                        if (bonusOrPenalty > 0) {
+                            return value >= bonusOrPenalty;
+                        }
+                        else {
+                            return value <= bonusOrPenalty;
+                        }
                     }
                 }
+
                 return false;
             };
         }

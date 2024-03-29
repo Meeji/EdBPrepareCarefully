@@ -47,12 +47,11 @@ namespace EdB.PrepareCarefully {
             if (!thing.def.uiIconPath.NullOrEmpty()) {
                 resolvedIcon = thing.def.uiIcon;
             }
-            else if (thing is Pawn) {
-                Pawn pawn = (Pawn)thing;
-                if (!pawn.Drawer.renderer.graphics.AllResolved) {
-                    pawn.Drawer.renderer.graphics.ResolveAllGraphics();
+            else if (thing is Pawn pawn) {
+                if (!pawn.Drawer.renderer.renderTree.Resolved) {
+                    pawn.Render();
                 }
-                Material matSingle = pawn.Drawer.renderer.graphics.nakedGraphic.MatEast;
+                Material matSingle = pawn.Drawer.renderer.renderTree.BodyGraphic.MatEast;
                 resolvedIcon = matSingle.mainTexture;
                 GUI.color = matSingle.color;
             }
